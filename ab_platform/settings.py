@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'ab_platform',
         'USER': 'itkachev',
         'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
