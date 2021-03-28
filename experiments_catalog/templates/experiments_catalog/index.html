@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Experiments catalog
+{% endblock %}
+
+{% block content %}
+    <a class="btn btn-info mb-3" href="{% url 'experiment_create_url' %}" role="button">Create experiment</a>
+
+    <table class="table">
+        <tr>
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">Id experiment</th>
+                <th scope="col">Description</th>
+                <th scope="col">Date period from</th>
+                <th scope="col">Date period to</th>
+                <th scope="col">Date postperiod from</th>
+                <th scope="col">Target camp wave ids</th>
+                <th scope="col">Control camp wave id</th>
+                <th scope="col">Wave ids</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for experiment in experiments %}
+                <tr>
+                    <td>
+                        <a href="{{ experiment.get_detail_url }}">
+                            {{ experiment.id_experiment }}
+                        </a>
+                    </td>
+                    <td>{{ experiment.description|truncatechars:20 }}</td>
+                    <td>{{ experiment.date_period_from }}</td>
+                    <td>{{ experiment.date_period_to }}</td>
+                    <td>{{ experiment.date_postperiod_to }}</td>
+                    <td>{{ experiment.target_camp_wave_ids|truncatechars:20 }}</td>
+                    <td>{{ experiment.control_camp_wave_id }}</td>
+                    <td>{{ experiment.wave_ids }}</td>
+                    <td><a class="btn btn-info" href="{{ experiment.get_update_url }}" role="button">Update</a></td>
+                    <td><a class="btn btn-danger" href="{{ experiment.get_delete_url }}" role="button">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+    </table>
+
+    {% if is_paginated %}
+        {% include "pagination.html" %}
+    {% endif %}
+
+{% endblock %}

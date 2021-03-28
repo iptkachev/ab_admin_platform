@@ -1,0 +1,10 @@
+# Configs
+config
+
+# Python
+venv
+**__pycache__
+
+# IDEs
+.idea
+.DS_Store

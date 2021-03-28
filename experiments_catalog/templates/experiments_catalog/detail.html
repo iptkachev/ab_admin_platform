@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Experiment details
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Experiment details {{ experiment.id_experiment }}</h5>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">ID experiment</dt>
+                <dd class="col-sm-9">{{ experiment.id_experiment }}</dd>
+                <dt class="col-sm-3">Description</dt>
+                <dd class="col-sm-9">{{ experiment.description }}</dd>
+                <dt class="col-sm-3">Date period from</dt>
+                <dd class="col-sm-9">{{ experiment.date_period_from }}</dd>
+                <dt class="col-sm-3">Date period to</dt>
+                <dd class="col-sm-9">{{ experiment.date_period_to }}</dd>
+                <dt class="col-sm-3">Date postperiod to</dt>
+                <dd class="col-sm-9">{{ experiment.date_postperiod_to }}</dd>
+                <dt class="col-sm-3">Target camp wave ids</dt>
+                <dd class="col-sm-9">{{ experiment.target_camp_wave_ids }}</dd>
+                <dt class="col-sm-3">Control camp wave id</dt>
+                <dd class="col-sm-9">{{ experiment.control_camp_wave_id }}</dd>
+                <dt class="col-sm-3">Wave ids</dt>
+                <dd class="col-sm-9">{{ experiment.wave_ids }}</dd>
+            </dl>
+        </div>
+    </div>
+{% endblock %}
